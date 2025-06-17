@@ -1,0 +1,128 @@
+-- 1. Create the database
+CREATE DATABASE medical_db;
+
+-- 2. Use the database
+USE medical_db;
+
+-- 3. Create the FAQ table
+CREATE TABLE faq (
+    faq_id INT AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(255) NOT NULL,
+    answer TEXT NOT NULL
+);
+
+-- 4. Create the Emergency Information table
+CREATE TABLE emergency_info (
+    emergency_id INT AUTO_INCREMENT PRIMARY KEY,
+    disease_type VARCHAR(100) NOT NULL,
+    instructions TEXT NOT NULL
+);
+
+-- Insert FAQ data
+INSERT INTO faq (question, answer) VALUES
+('What is the purpose of this medical diagnosis system?', 'This system uses AI and machine learning models to predict diseases like diabetes, liver disease, and kidney disease based on medical data. It analyzes the symptoms and predicts the likelihood of these diseases.'),
+('How does the AI diagnose diseases like diabetes, liver, and kidney disease?', 'The AI model uses a dataset with historical medical information and symptoms. It analyzes patterns and predicts whether a person is at risk for these diseases based on their symptoms.'),
+('Can this system replace a doctor’s diagnosis?', 'No, the system provides a preliminary diagnosis based on the data provided. It is important to consult a medical professional for a final diagnosis and treatment.'),
+('What kind of symptoms should I provide to the AI system?', 'You should provide symptoms like fatigue, frequent urination, jaundice, swelling, or any other relevant symptoms. The more accurate your data, the better the prediction.'),
+('What should I do if the AI system predicts that I have one of these diseases?', 'If the system predicts that you may have diabetes, liver, or kidney disease, it''s important to consult a healthcare professional for proper medical tests and treatment.'),
+('How accurate is the AI’s prediction?', 'The accuracy depends on the data used for training the model. It’s important to note that the AI provides a prediction, but it is not 100% accurate. Always consult a doctor for confirmation.');
+
+-- Insert Emergency Information data
+INSERT INTO emergency_info (disease_type, instructions) VALUES
+('Diabetes', 'If someone is experiencing a diabetic emergency like low blood sugar (hypoglycemia), they should consume glucose tablets, fruit juice, or sugary foods to raise their blood sugar levels. In case of high blood sugar (hyperglycemia), they should seek immediate medical help, drink plenty of water, and avoid sugary foods. Always carry insulin or glucose tablets, especially when traveling to remote areas. In Nepal, visit a local healthcare center or hospital, such as Shree Harsha Hospital or Shree Harsha Diabetes Center in Kathmandu for proper management.'),
+('Liver Disease', 'If a person is experiencing symptoms like jaundice (yellowing of the skin or eyes), swelling, or severe abdominal pain, they should seek medical help immediately. Limit alcohol consumption and avoid foods high in fat and sugar. For immediate medical care, visit Shree Harsha Hospital or Shree Harsha Liver Center in Kathmandu, Nepal. Liver disease can be severe, so timely diagnosis and treatment are critical.'),
+('Kidney Disease', 'Symptoms like swelling of the feet, frequent urination at night, or back pain can be signs of kidney disease. Keep blood pressure under control and maintain a healthy diet. Avoid excessive salt and processed foods. If you experience sudden pain or swelling in the abdomen or legs, consult a nephrologist immediately. Visit Nepal Kidney Foundation in Kathmandu for proper medical consultation and treatment.');
+
+
+
+CREATE TABLE IF NOT EXISTS userbase (
+    userid INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    age INTEGER,
+    gender TEXT,
+    contact_info TEXT
+);
+
+
+
+'''INSERT INTO userbase (userid, name, email, password, age, gender, contact_info) VALUES (?, ?, ?, ?, ?, ?, ?)'''
+
+-- Create KidneyRecord table
+CREATE TABLE IF NOT EXISTS KidneyRecord (
+    Kidney_Record_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    age INTEGER,
+    blood_pressure INTEGER,
+    specific_gravity REAL,
+    albumin INTEGER,
+    sugar INTEGER,
+    red_blood_cells INTEGER,
+    pus_cell INTEGER,
+    pus_cell_clumps INTEGER,
+    bacteria INTEGER,
+    blood_glucose_random INTEGER,
+    blood_urea INTEGER,
+    serum_creatinine REAL,
+    sodium REAL,
+    potassium REAL,
+    haemoglobin REAL,
+    packed_cell_volume REAL,
+    white_blood_cell_count REAL,
+    red_blood_cell_count REAL,
+    hypertension INTEGER,  -- 0 for No, 1 for Yes
+    diabetes_mellitus INTEGER,  -- 0 for No, 1 for Yes
+    coronary_artery_disease INTEGER,  -- 0 for No, 1 for Yes
+    appetite INTEGER,  -- 0 for Poor, 1 for Good
+    peda_edema INTEGER,  -- 0 for No, 1 for Yes
+    anemia INTEGER,  -- 0 for No, 1 for Yes
+    FOREIGN KEY (user_id) REFERENCES userbase (userid)  -- Reference to userbase table
+);
+
+-- Create LiverRecord table
+CREATE TABLE IF NOT EXISTS LiverRecord (
+    Liver_Record_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    age INTEGER,
+    gender INTEGER,  -- 0 for Male, 1 for Female
+    total_bilirubin REAL,
+    direct_bilirubin REAL,
+    alkaline_phosphatase INTEGER,
+    alamine_aminotransferase INTEGER,
+    aspartate_aminotransferase INTEGER,
+    total_proteins REAL,
+    albumin REAL,
+    albumin_and_globulin_ratio REAL,
+    FOREIGN KEY (user_id) REFERENCES userbase (userid)  -- Reference to userbase table
+);
+
+-- Create DiabetesRecord table
+CREATE TABLE IF NOT EXISTS DiabetesRecord (
+    Diabetes_Record_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    pregnancies INTEGER,
+    glucose INTEGER,
+    blood_pressure INTEGER,
+    skin_thickness INTEGER,
+    insulin INTEGER,
+    bmi REAL,
+    diabetes_pedigree_function REAL,
+    age INTEGER,
+    FOREIGN KEY (user_id) REFERENCES userbase (userid)  -- Reference to userbase table
+);
+
+
+    CREATE TABLE IF NOT EXISTS predictionreport (
+        report_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        prediction_result TEXT,
+        disease_type TEXT,
+        patient_id INTEGER,
+        liver_record_id INTEGER,
+        diabetes_record_id INTEGER,
+        kideny_record_id INTEGER,
+        FOREIGN KEY (patient_id) REFERENCES userbase(userid),
+        FOREIGN KEY (liver_record_id) REFERENCES LiverRecord(Liver_Record_ID),
+        FOREIGN KEY (diabetes_record_id) REFERENCES DiabetesRecord(Diabetes_Record_ID),
+        FOREIGN KEY (kideny_record_id) REFERENCES KidneyRecord(Kidney_record_ID)
+    );
