@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="../static/css/login_register.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title">Login / Register</div>
+        </div>
+
+
+
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <div class="slider-tab"></div>
+            <label for="login" class="login">Login</label>
+            <label for="signup" class="signup">Sign Up</label>
+        </div>
+
+        <div class="form-container">
+            <div class="form-inner">
+                <form action="/login_register" method="POST" id="login-form" style="display: block;">
+                    <div class="field">
+                        <input type="text" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" name="login" value="Login">
+                    </div>
+                    <div class="pass-link">
+                        Forgot Password? Please contact the administrator
+                    </div>
+                </form>
+
+                <form action="/login_register" method="POST" id="signup-form" style="display: none;">
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                        <div class="error-message">Passwords do not match</div> <!-- Error Message -->
+                    </div>
+                    <div class="field">
+                        <input type="text" name="contact" placeholder="Contact Info" required>
+                    </div>
+                    <div class="field">
+                        <select name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="flash-messages">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        <ul>
+                            {% for category, message in messages %}
+                            <li class="flash-{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" name="signup" value="Sign Up">
+                    </div>
+                    <div class="signup-link">
+                        <p>Already have an account? <a href="#">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        document.getElementById('login').addEventListener('change', function () {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        });
+
+        document.getElementById('signup').addEventListener('change', function () {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        });
+
+        const signupFormElement = document.getElementById('signup-form');
+        const passwordField = signupFormElement.querySelector('input[name="password"]');
+        const confirmPasswordField = signupFormElement.querySelector('input[name="confirm_password"]');
+        const errorMessage = signupFormElement.querySelector('.error-message');
+
+        signupFormElement.addEventListener('submit', function (e) {
+
+            errorMessage.style.display = 'none';
+
+            if (passwordField.value !== confirmPasswordField.value) {
+                e.preventDefault();
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

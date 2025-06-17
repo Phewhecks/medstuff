@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/profile_style.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <nav>
+         <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+        <div class="button-group">
+            <a href="javascript:void(0);" onclick="showTab('profile')" class="tab-btn">Profile</a>
+            <a href="javascript:void(0);" onclick="showTab('reportHistory')" class="tab-btn">Report History</a>
+            <a href="{{ url_for('logout') }}" class="tab-btn logout">Logout</a>
+        </div>
+
+
+
+    <div class="content">
+        <div id="profile" class="tab-content active">
+            <h1>Welcome, {{ user[1] }}!</h1>
+            <p>Email: {{ user[2] }}</p>
+            <p>Contact: {{ user[3] }}</p>
+            <p>Gender: {{ user[4] }}</p>
+        </div>
+
+        <div id="reportHistory" class="tab-content">
+            <h1>Report History</h1>
+            <p>Here are your past reports...</p>
+
+            {% if reports %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Prediction Result</th>
+                        <th>Disease Type</th>
+                        <th>Patient ID</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                    <tr>
+                        <td>{{ report[0] }}</td>
+                        <td>{{ report[1] }}</td>
+                        <td>{{ report[2] }}</td>
+                        <td>{{ report[3] }}</td>
+                        <td>
+                            <a href="{{ url_for('download_report', report_id=report[0]) }}">Download</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No reports available.</p>
+            {% endif %}
+        </div>
+
+
+        <div id="updateInfo" class="tab-content">
+            <h1>Update Information</h1>
+            <p>Update your profile here...</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+        }
+    </script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

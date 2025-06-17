@@ -1,0 +1,122 @@
+/* ========== Reset & Basic Styling for content only ========== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* light background */
+  color: #1e293b; /* dark text */
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body.dark {
+  background-color: #111827;
+  color: #cbd5e1;
+}
+
+/* ========== Content Wrapper ========== */
+.content-wrapper {
+  max-width: 900px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 50px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  overflow-y: auto;
+  margin: 40px auto 80px auto;
+  color: inherit;
+}
+
+body.dark .content-wrapper {
+  background-color: #1e293b;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+/* ========== Headings ========== */
+.content-wrapper h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: inherit;
+}
+
+.content-wrapper h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #1d4ed8;
+  padding-left: 12px;
+  color: #1d4ed8;
+}
+
+body.dark .content-wrapper h2 {
+  color: #3b82f6;
+  border-left-color: #3b82f6;
+}
+
+.content-wrapper h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: inherit;
+}
+
+.content-wrapper p {
+  font-size: 1.05rem;
+  margin: 0.5rem 0 1.5rem;
+  line-height: 1.75;
+  color: inherit;
+}
+
+/* ========== Graph Containers ========== */
+.graph-container {
+  margin: 1rem 0 3rem;
+  background: #fefefe;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-x: auto;
+}
+
+.graph-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+body.dark .graph-container {
+  background: #283046;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .graph-container:hover {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 30px 20px;
+    margin: 20px auto 40px auto;
+  }
+
+  .content-wrapper h1 {
+    font-size: 2.2rem;
+  }
+
+  .content-wrapper h2 {
+    font-size: 1.6rem;
+  }
+
+  .content-wrapper h3 {
+    font-size: 1.2rem;
+  }
+
+  .content-wrapper p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,285 @@
+/* Emergency Page Styles */
+
+/* Emergency Container */
+.emergency-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  text-align: center; /* Center the main container text */
+}
+
+/* Emergency Title */
+.emergency-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2563eb;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgb(37 99 235 / 0.25);
+  background-color: #f0f7ff;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tab {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease, background-color 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab.active {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+  background-color: #e0f2fe;
+}
+
+.tab:hover:not(.active) {
+  color: #2563eb;
+  background-color: #eff6ff;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Emergency Info Section */
+h2, h3 {
+  color: #0f172a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+ul li {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+ul li strong {
+  font-weight: 600;
+}
+
+/* ---- Existing styles you have ---- */
+
+/* Emergency Disease FAQ Section */
+.emergecy-common-container .faq {
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.emergecy-common-container .faq:hover {
+  background-color: #e0f2fe;
+}
+
+/* Question */
+.emergecy-common-container .question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+/* Answer hidden by default */
+.emergecy-common-container .answer {
+  font-size: 1.1rem;
+  color: #475569;
+  display: none;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Show answer only on hover */
+.emergecy-common-container .faq:hover .answer {
+  display: block;
+}
+
+
+/* Call Button */
+.call-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgb(59 130 246 / 0.4);
+  margin-top: 10px;
+}
+
+.call-btn:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  box-shadow: 0 6px 12px rgb(30 64 175 / 0.6);
+}
+
+/* Doctor Cards Container */
+.doctor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center all cards horizontally */
+  gap: 20px; /* Space between cards */
+  margin-top: 20px;
+}
+
+/* Individual Doctor Card */
+.doctor-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  padding: 20px;
+  max-width: 280px;
+  text-align: center; /* Center text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+}
+
+.doctor-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #2563eb;
+}
+
+.doctor-specialty {
+  font-style: italic;
+  color: #475569;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.doctor-card p {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Hospital Cards Container */
+.hospital-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center all cards horizontally */
+  gap: 20px; /* Space between cards */
+  margin-top: 20px;
+}
+
+/* Individual Hospital Card */
+.hospital-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  padding: 20px;
+  max-width: 280px;
+  text-align: center; /* Center text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.hospital-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+}
+
+.hospital-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #2563eb;
+}
+
+.hospital-card p {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Dark Mode  */
+
+
+body.dark .emergency-container {
+  background-color: #27343d;
+  text-align: center;
+}
+
+body.dark .emergency-container h1 {
+  background-color: #32424d;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+  color: #e3f6f5;
+}
+
+body.dark .tab-content {
+  background-color: #27343d;
+  color: #e2e8f0;
+}
+
+body.dark .tab-content p,
+body.dark .tab-content li {
+  color: #cbd5e1;
+}
+
+body.dark .tab-content strong {
+  color: #ffffff;
+}
+
+body.dark .doctor-card,
+body.dark .hospital-card {
+  background-color: #32424d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark .doctor-name,
+body.dark .hospital-name {
+  color: #cde4f3;
+}
+
+body.dark .call-btn {
+  background-color: #38bdf8;
+  color: white;
+  box-shadow: 0 4px 6px rgba(56, 189, 248, 0.4);
+}
+
+body.dark .call-btn:hover {
+  background-color: #60cdfb;
+  box-shadow: 0 6px 12px rgba(56, 189, 248, 0.6);
+}

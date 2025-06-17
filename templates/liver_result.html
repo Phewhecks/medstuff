@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Liver Disease Prediction Result</title>
+    <style>
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+            transition: background 0.4s ease, color 0.4s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .result-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(46, 125, 50, 0.15);
+            text-align: center;
+        }
+
+        .result-box h2 {
+            color: #1b5e20;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        table {
+            margin: 40px auto 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        th {
+            background-color: #2e7d32;
+            color: white;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        tr:hover {
+            background-color: #f1f8e9;
+        }
+
+        .back-button {
+            display: block;
+            margin: 40px auto 0 auto;
+            padding: 12px 28px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            width: 180px;
+        }
+
+        .back-button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+
+    <h1>Liver Disease Prediction Result</h1>
+
+    <div class="result-box">
+        <h2>{{ result }} - {{ confidence }}</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in form_data.items() %}
+                <tr>
+                    <td>{{ key.replace('_', ' ').capitalize() }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ url_for('liver_form') }}" class="back-button">Go Back</a>
+</body>
+
+</html>

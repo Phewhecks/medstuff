@@ -1,0 +1,199 @@
+/* Grid container for disease cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    background: linear-gradient(135deg, #e0f7f7, #f9fafb);
+}
+
+/* Disease Card */
+.disease-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 30px;
+    box-shadow:
+        inset 0 0 10px rgba(56, 178, 172, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid #38b2ac;
+    padding-left: 25px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.disease-card:hover {
+    box-shadow:
+        inset 0 0 15px rgba(56, 178, 172, 0.15),
+        0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+.disease-card h2 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+}
+
+.disease-card .intro {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Section titles clickable for collapsibles */
+.section-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #319795;
+    margin: 20px 0 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Read more button */
+.read-more-btn {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #475569;
+    user-select: none;
+}
+
+/* Collapsible content (hidden by default) */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.collapsible-content.show {
+    max-height: 500px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.collapsible-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.collapsible-content ul li:hover {
+    color: #319795;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Risk factors list */
+.risk-factors {
+    list-style-type: circle;
+    margin-left: 20px;
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Button link style (for predict links) */
+.button-link {
+    margin-top: auto;
+    display: inline-block;
+    background: #38b2ac;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+    align-self: flex-start;
+}
+
+.button-link:hover {
+    background: #319795;
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 5px 15px rgba(49, 151, 149, 0.3);
+}
+
+/* Dark mode support */
+body.dark {
+    background: #0f172a;
+    color: #cbd5e1;
+}
+
+body.dark .grid-container {
+    background: #0f242a;
+}
+
+body.dark .disease-card {
+    background: #1e2b33;
+    box-shadow:
+        inset 0 0 10px rgba(72, 187, 174, 0.08),
+        0 2px 10px rgba(0, 0, 0, 0.2);
+    border-left-color: #38b2ac;
+}
+
+body.dark .disease-card:hover {
+    box-shadow:
+        inset 0 0 20px rgba(72, 187, 174, 0.2),
+        0 6px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+body.dark .disease-card h2,
+body.dark .section-title {
+    color: #e2e8f0;
+    text-shadow: none;
+}
+
+body.dark .intro,
+body.dark .risk-factors,
+body.dark .collapsible-content ul,
+body.dark .read-more-btn {
+    color: #94a3b8;
+}
+
+body.dark .collapsible-content ul li:hover {
+    color: #38b2ac;
+}
+
+body.dark .button-link {
+    background: #319795;
+    box-shadow: none;
+}
+
+body.dark .button-link:hover {
+    background: #2c7a7b;
+    box-shadow: 0 5px 15px rgba(44, 122, 123, 0.4);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .grid-container {
+        padding: 20px;
+    }
+
+    .disease-card {
+        padding: 20px;
+        border-left-width: 4px;
+        padding-left: 20px;
+    }
+
+    .button-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}

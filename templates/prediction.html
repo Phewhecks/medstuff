@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Disease Prediction Portal</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/prediction_style.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+   <nav>
+        <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="grid-container">
+
+        <div class="disease-card">
+            <h2>Kidney Disease</h2>
+            <p class="intro">Kidney disease occurs when the kidneys lose their ability to filter waste and excess fluids
+                from the blood. Early detection is vital to prevent serious complications.</p>
+
+            <div class="section-title">Risk Factors</div>
+            <ul class="risk-factors">
+                <li>Diabetes and high blood pressure</li>
+                <li>Family history of kidney disease</li>
+                <li>Older age</li>
+                <li>Smoking</li>
+                <li>Obesity</li>
+            </ul>
+
+            <div class="section-title" onclick="toggleContent(this)">Common Symptoms <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Swelling of feet and ankles</li>
+                    <li>Fatigue and weakness</li>
+                    <li>Changes in urination frequency and appearance</li>
+                    <li>Persistent itching</li>
+                    <li>Shortness of breath</li>
+                </ul>
+            </div>
+
+            <div class="section-title" onclick="toggleContent(this)">Prevention Tips <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Maintain healthy blood pressure and blood sugar levels</li>
+                    <li>Stay hydrated and maintain a balanced diet</li>
+                    <li>Avoid excessive use of painkillers and nephrotoxic drugs</li>
+                    <li>Regular medical checkups if at risk</li>
+                </ul>
+            </div>
+
+            <a class="button-link" href="/kidney_form">Predict Kidney Disease</a>
+        </div>
+
+        <div class="disease-card">
+            <h2>Liver Disease</h2>
+            <p class="intro">Liver disease includes a range of conditions that impair the liver’s functions such as
+                detoxification, protein synthesis, and digestion support.</p>
+
+            <div class="section-title">Risk Factors</div>
+            <ul class="risk-factors">
+                <li>Excessive alcohol consumption</li>
+                <li>Hepatitis B and C infections</li>
+                <li>Obesity and fatty liver disease</li>
+                <li>Exposure to toxins and certain medications</li>
+                <li>Family history of liver conditions</li>
+            </ul>
+
+            <div class="section-title" onclick="toggleContent(this)">Common Symptoms <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Jaundice (yellowing of skin and eyes)</li>
+                    <li>Abdominal pain and swelling</li>
+                    <li>Chronic fatigue</li>
+                    <li>Loss of appetite and nausea</li>
+                    <li>Dark urine and pale stools</li>
+                </ul>
+            </div>
+
+            <div class="section-title" onclick="toggleContent(this)">Prevention Tips <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Limit alcohol intake and avoid drug abuse</li>
+                    <li>Get vaccinated for hepatitis B</li>
+                    <li>Maintain healthy weight and diet</li>
+                    <li>Avoid exposure to toxins</li>
+                    <li>Regular screening for liver health</li>
+                </ul>
+            </div>
+
+            <a class="button-link" href="/liver_form">Predict Liver Disease</a>
+        </div>
+
+        <div class="disease-card">
+            <h2>Diabetes</h2>
+            <p class="intro">Diabetes is a chronic condition that affects how your body regulates blood sugar (glucose).
+                Managing blood sugar is critical to prevent complications.</p>
+
+            <div class="section-title">Risk Factors</div>
+            <ul class="risk-factors">
+                <li>Family history of diabetes</li>
+                <li>Overweight or obesity</li>
+                <li>Physical inactivity</li>
+                <li>Age over 45 years</li>
+                <li>High blood pressure or abnormal cholesterol levels</li>
+            </ul>
+
+            <div class="section-title" onclick="toggleContent(this)">Common Symptoms <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Frequent urination</li>
+                    <li>Excessive thirst</li>
+                    <li>Increased hunger</li>
+                    <li>Fatigue and blurred vision</li>
+                    <li>Slow-healing wounds</li>
+                </ul>
+            </div>
+
+            <div class="section-title" onclick="toggleContent(this)">Prevention Tips <span class="read-more-btn">[Read
+                    More]</span></div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Maintain a healthy diet rich in fiber</li>
+                    <li>Regular physical activity</li>
+                    <li>Maintain healthy weight</li>
+                    <li>Monitor blood sugar levels regularly</li>
+                    <li>Avoid smoking</li>
+                </ul>
+            </div>
+
+            <a class="button-link" href="/diabetes_form">Predict Diabetes</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(element) {
+            const content = element.nextElementSibling;
+            const btn = element.querySelector('.read-more-btn');
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                btn.textContent = '[Read More]';
+            } else {
+                content.classList.add('show');
+                btn.textContent = '[Read Less]';
+            }
+        }
+    </script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

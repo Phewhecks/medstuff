@@ -1,0 +1,388 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Body styling */
+body {
+  background: #f0fdf4;
+  color: #0f172a;
+  transition: background 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar container */
+nav {
+  background: #256d85;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Navbar left (logo + text) */
+.nav-left {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image */
+.logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+  transition: filter 0.3s ease;
+}
+
+/* Logo effect in dark mode */
+body.dark .logo {
+  filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.8));
+}
+
+/* Logo and text hover */
+.nav-left:hover .logo {
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.7));
+}
+.nav-left:hover {
+  color: #000000;
+  transform: scale(1.15);
+}
+
+/* Navbar right (links and toggle) */
+.nav-right a,
+#darkModeToggle {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 20px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Hover effect for navbar links */
+.nav-right a:hover,
+#darkModeToggle:hover {
+  color: #000000;
+  transform: scale(1.05);
+}
+
+/* Toggle icon size */
+#darkModeToggle {
+  font-size: 1.4rem;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 40px;
+  animation: fadeIn 1s ease-in;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 20px 40px;
+  border-radius: 12px;
+}
+
+/* Hero text block */
+.hero-text {
+  max-width: 600px;
+}
+.hero-text h2 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  color: #475569;
+}
+
+/* Hero image */
+.hero img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #ccfbf1;
+  color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+footer img {
+  height: 24px;
+}
+
+/* Chatbot button */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Chatbot popup */
+.chat-window {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+  z-index: 102;
+}
+.chat-window.active {
+  display: flex;
+}
+
+/* Chat header */
+.chat-header {
+  background: #0ea5e9;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-header span {
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+/* Chat body (messages) */
+.chat-body {
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+/* Chat footer (input + button) */
+.chat-footer {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  display: flex;
+}
+.chat-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+.chat-footer button {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Dark mode */
+body.dark {
+  background: #1e2a32; /* soft bluish-gray, not black */
+  color: #d1dce5;
+}
+
+body.dark nav {
+  background: #22313c; /* KEEPING your preferred navbar color */
+}
+
+body.dark .hero {
+  background: #27343d; /* Slightly lighter than body for contrast */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .hero-text h2 {
+  color: #e3f6f5;
+}
+
+body.dark .hero-text p {
+  color: #d1dce5;
+}
+
+/* Chatbot popup */
+body.dark .chat-window {
+  background: #27343d; /* Same as hero for consistency */
+  color: #e3f6f5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .chat-body {
+  color: #e3f6f5;
+}
+
+body.dark .chat-footer input {
+  background: #32424d;
+  border: 1px solid #465c66;
+  color: #e3f6f5;
+}
+
+body.dark .chat-footer button {
+  background: #38bdf8;
+}
+
+body.dark .chat-footer button:hover {
+  background: #60cdfb;
+}
+
+body.dark .chat-header {
+  background: #38bdf8;
+}
+
+/* Footer */
+body.dark footer {
+  background: #22313c;
+  color: #cde4f3;
+}
+body.dark footer img {
+  filter: brightness(0) invert(1);
+}
+
+/* Ambulance button */
+body.dark .ambulance-btn {
+  color: white;
+}
+body.dark .ambulance-btn:hover {
+  color: white;
+}
+
+
+
+
+
+/* Ambulance button */
+.ambulance-btn {
+  background: #dc2626 !important;
+  padding: 10px 16px;
+  font-weight: 600;
+  border: 2px solid white;
+  border-radius: 8px;
+  color: black;
+  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+.ambulance-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+body.dark .ambulance-btn {
+  color: white;
+}
+body.dark .ambulance-btn:hover {
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero img {
+    max-width: 280px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .nav-right a,
+  #darkModeToggle {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .ambulance-btn {
+    font-size: 0.9rem;
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+}

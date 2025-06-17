@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Diabetes Prediction - Data Input</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 30px;
+            background: linear-gradient(to right, #e8f5e9, #ffffff);
+            color: #1b1b1b;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-bottom: 2px solid #c8e6c9;
+            padding-bottom: 10px;
+        }
+
+        form {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border: 1px solid #cfcfcf;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #2e7d32;
+            outline: none;
+            background-color: #f0fff0;
+        }
+
+        .range-info {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 2px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form action="/diabetes_predict" method="POST">
+        <label for="pregnancies">Pregnancies <span class="range-info">(0 - 20)</span></label>
+        <input type="number" name="pregnancies" min="0" max="20" required>
+
+        <label for="glucose">Glucose <span class="range-info">(50 - 250 mg/dL)</span></label>
+        <input type="number" name="glucose" min="50" max="250" required>
+
+        <label for="blood_pressure">Blood Pressure <span class="range-info">(30 - 200 mm Hg)</span></label>
+        <input type="number" name="blood_pressure" min="30" max="200" required>
+
+        <label for="skin_thickness">Skin Thickness <span class="range-info">(0 - 100 mm)</span></label>
+        <input type="number" name="skin_thickness" min="0" max="100" required>
+
+        <label for="insulin">Insulin <span class="range-info">(0 - 1000 µU/ml)</span></label>
+        <input type="number" name="insulin" min="0" max="1000" required>
+
+        <label for="bmi">BMI <span class="range-info">(10 - 50 kg/m²)</span></label>
+        <input type="number" step="any" name="bmi" min="10" max="50" required>
+
+        <label for="diabetes_pedigree_function">Diabetes Pedigree Function <span class="range-info">(0.0 -
+                2.5)</span></label>
+        <input type="number" step="any" name="diabetes_pedigree_function" min="0.0" max="2.5" required>
+
+        <label for="age">Age <span class="range-info">(18 - 100 years)</span></label>
+        <input type="number" name="age" min="18" max="100" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kidney Disease Prediction - Data Input</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 30px;
+            background: linear-gradient(to right, #e8f5e9, #ffffff);
+            color: #1b1b1b;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-bottom: 2px solid #c8e6c9;
+            padding-bottom: 10px;
+        }
+
+        form {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border: 1px solid #cfcfcf;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #2e7d32;
+            outline: none;
+        }
+
+        .range-info {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kidney Disease Prediction</h1>
+    <form action="/kidney_predict" method="POST">
+        <label for="age">Age <span class="range-info">(1 - 100 years)</span></label>
+        <input type="number" name="age" min="1" max="100" step="any" required>
+
+        <label for="blood_pressure">Blood Pressure (mm Hg) <span class="range-info">(40 - 220 mm Hg)</span></label>
+        <input type="number" name="blood_pressure" min="40" max="220" step="any" required>
+
+        <label for="specific_gravity">Specific Gravity <span class="range-info">(1.005 - 1.025)</span></label>
+        <select name="specific_gravity" required>
+            <option value="1.005">1.005</option>
+            <option value="1.010">1.010</option>
+            <option value="1.015">1.015</option>
+            <option value="1.020">1.020</option>
+            <option value="1.025">1.025</option>
+        </select>
+
+        <label for="albumin">Albumin <span class="range-info">(0 - 5)</span></label>
+        <select name="albumin" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <label for="sugar">Sugar <span class="range-info">(0 - 5)</span></label>
+        <select name="sugar" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <label for="red_blood_cells">Red Blood Cells <span class="range-info">(Normal/Abnormal)</span></label>
+        <select name="red_blood_cells" required>
+            <option value="normal">Normal</option>
+            <option value="abnormal">Abnormal</option>
+        </select>
+
+        <label for="pus_cell">Pus Cells <span class="range-info">(Normal/Abnormal)</span></label>
+        <select name="pus_cell" required>
+            <option value="normal">Normal</option>
+            <option value="abnormal">Abnormal</option>
+        </select>
+
+        <label for="pus_cell_clumps">Pus Cell Clumps <span class="range-info">(Not Present/Present)</span></label>
+        <select name="pus_cell_clumps" required>
+            <option value="notpresent">Not Present</option>
+            <option value="present">Present</option>
+        </select>
+
+        <label for="bacteria">Bacteria <span class="range-info">(Not Present/Present)</span></label>
+        <select name="bacteria" required>
+            <option value="notpresent">Not Present</option>
+            <option value="present">Present</option>
+        </select>
+
+        <label for="blood_glucose_random">Blood Glucose Random <span class="range-info">(40 - 400 mg/dL)</span></label>
+        <input type="number" name="blood_glucose_random" min="40" max="400" step="any" required>
+
+        <label for="blood_urea">Blood Urea <span class="range-info">(10 - 200 mg/dL)</span></label>
+        <input type="number" name="blood_urea" min="10" max="200" step="any" required>
+
+        <label for="serum_creatinine">Serum Creatinine <span class="range-info">(0.5 - 10 mg/dL)</span></label>
+        <input type="number" name="serum_creatinine" min="0.5" max="10" step="any" required>
+
+        <label for="sodium">Sodium <span class="range-info">(100 - 200 mmol/L)</span></label>
+        <input type="number" name="sodium" min="100" max="200" step="any" required>
+
+        <label for="potassium">Potassium <span class="range-info">(2.5 - 7.5 mmol/L)</span></label>
+        <input type="number" name="potassium" min="2.5" max="7.5" step="any" required>
+
+        <label for="haemoglobin">Haemoglobin <span class="range-info">(5 - 20 g/dL)</span></label>
+        <input type="number" name="haemoglobin" min="5" max="20" step="any" required>
+
+        <label for="packed_cell_volume">Packed Cell Volume <span class="range-info">(10 - 100%)</span></label>
+        <input type="number" name="packed_cell_volume" min="10" max="100" step="any" required>
+
+        <label for="white_blood_cell_count">White Blood Cell Count <span class="range-info">(3000 - 11000
+                cells/mm³)</span></label>
+        <input type="number" name="white_blood_cell_count" min="3000" max="11000" step="any" required>
+
+        <label for="red_blood_cell_count">Red Blood Cell Count <span class="range-info">(3.5 - 6.5 million
+                cells/mm³)</span></label>
+        <input type="number" name="red_blood_cell_count" min="3.5" max="6.5" step="any" required>
+
+        <label for="hypertension">Hypertension <span class="range-info">(No/Yes)</span></label>
+        <select name="hypertension" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <label for="diabetes_mellitus">Diabetes Mellitus <span class="range-info">(No/Yes)</span></label>
+        <select name="diabetes_mellitus" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <label for="coronary_artery_disease">Coronary Artery Disease <span class="range-info">(No/Yes)</span></label>
+        <select name="coronary_artery_disease" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <label for="appetite">Appetite <span class="range-info">(Poor/Good)</span></label>
+        <select name="appetite" required>
+            <option value="poor">Poor</option>
+            <option value="good">Good</option>
+        </select>
+
+        <label for="peda_edema">Pedal Edema <span class="range-info">(No/Yes)</span></label>
+        <select name="peda_edema" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <label for="aanemia">Anemia <span class="range-info">(No/Yes)</span></label>
+        <select name="aanemia" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

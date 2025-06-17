@@ -1,0 +1,123 @@
+/* FAQ Container */
+.faq-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* FAQ Item */
+.faq {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq:hover {
+  background-color: #e0f2fe;
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Question Styling */
+.question {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 12px;
+  cursor: default;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.faq:hover .question {
+  color: #2563eb;
+}
+
+/* Answer Styling (opens on hover) */
+.answer {
+  font-size: 1.1rem;
+  color: #475569;
+  padding: 0;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.faq:hover .answer {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 10px;
+}
+
+/* Dark Mode Styles */
+body.dark .faq-container {
+  background-color: #1e293b;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .faq {
+  background-color: #334155;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .faq:hover {
+  background-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.7);
+}
+
+body.dark .question {
+  color: #e0e0e0;
+}
+
+body.dark .faq:hover .question {
+  color: #bfdbfe;
+}
+
+body.dark .answer {
+  color: #cbd5e1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .faq-container {
+    padding: 15px;
+  }
+
+  .faq {
+    padding: 15px;
+  }
+
+  .question {
+    font-size: 1.4rem;
+  }
+
+  .answer {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-container {
+    padding: 10px;
+  }
+
+  .faq {
+    padding: 10px;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .answer {
+    font-size: 0.9rem;
+  }
+}

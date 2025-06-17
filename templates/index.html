@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>diagnosys</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Welcome to the Medical Diagnosis System — your intelligent health assistant powered by AI.</h2>
+            <p>
+                This platform is designed to help users identify early signs of common but serious health conditions
+                such as stroke,
+                diabetes, kidney disease, and pneumonia. By analyzing symptoms through a smart prediction model, the
+                system provides instant feedback, along with diet, exercise, and wellness suggestions tailored to each
+                condition. An integrated chatbot assists users by answering common health-related questions and offering
+                preventive care tips. For critical cases, an emergency response option is available to guide users in
+                real time. With built-in health insights and user-friendly design this system
+                empowers users to take control of their health with confidence and convenience.
+            </p>
+        </div>
+        <img src="../static/images/diagnosis.png" alt="Medical Diagnosis Illustration" />
+    </section>
+
+    <footer>
+        <p>© 2025 Medical Diagnosis System</p>
+    </footer>
+
+    <!-- Chatbot Toggle Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Toggle Chatbot">
+        <i class="bx bx-message-rounded-dots"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow" aria-live="polite" aria-label="Chatbot Window" role="region"
+        aria-hidden="true">
+        <div class="chat-header">
+            Chatbot
+            <span id="chatCloseBtn" aria-label="Close Chatbot" role="button" tabindex="0">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody" tabindex="0"></div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat input" />
+            <button id="chatSendBtn" aria-label="Send message">Send</button>
+        </div>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

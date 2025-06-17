@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Medical Diagnosis System</title>
+    <link rel="stylesheet" href="../static/css/faq_style.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="faq-container">
+        <h1 style="margin-bottom: 20px;">Frequently Asked Questions</h1>
+
+        {% for question, answer in faqs %}
+        <div class="faq">
+            <div class="question">{{ question }}</div>
+            <div class="answer">{{ answer }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="../static/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq');
+
+            faqItems.forEach(item => {
+                item.querySelector('.question').addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+    <footer>
+        <p>© 2025 Medical Diagnosis System</p>
+    </footer>
+</body>
+
+</html>

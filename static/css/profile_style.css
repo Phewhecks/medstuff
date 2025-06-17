@@ -1,0 +1,189 @@
+/* Reset and base styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #111827;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark {
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark nav {
+    background-color: #1f2937;
+}
+
+nav a,
+#darkModeToggle {
+    color: #1f2937;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dark nav a,
+.dark #darkModeToggle {
+    color: #f3f4f6;
+}
+
+.logo {
+    height: 40px;
+}
+
+/* Button Group */
+.button-group {
+    margin: 40px auto 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Buttons */
+.tab-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tab-btn:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.logout {
+    background-color: #ef4444;
+}
+
+.logout:hover {
+    background-color: #dc2626;
+}
+
+.dark .tab-btn {
+    background-color: #1c3d42;
+    color: white;
+}
+
+.dark .tab-btn:hover {
+    background-color: #0f2c2f;
+}
+
+.dark .tab-btn.logout {
+    background-color: #b91c1c;
+}
+
+.dark .tab-btn.logout:hover {
+    background-color: #991b1b;
+}
+
+/* Content Box */
+.content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1000px;
+    padding: 90px 100px;
+    background-color: #ffffff;
+    color: #111827;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.dark .content {
+    background-color: #1e293b;
+    color: #f3f4f6;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+/* Headings - inherit color */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+    color: inherit;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: inherit;
+    margin-bottom: 16px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #3b82f6;
+    color: white;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dark thead {
+    background-color: #2563eb;
+}
+
+.dark tbody td {
+    border-color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-btn {
+        width: 80%;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/insights.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <nav>
+         <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="tel:+977102" class="ambulance-btn">
+              <i class="fas fa-ambulance"></i>
+            </a>
+        </div>
+    </nav>
+    <div class="content-wrapper">
+  <h1>Interactive Insights</h1>
+
+  <!-- Diabetes Insights -->
+  <h2>Diabetes Insights</h2>
+
+  <h3>Age Distribution (Diabetes)</h3>
+  <p>This chart shows the distribution of people with diabetes across different age groups. It helps us understand if
+    diabetes is more common at certain ages. Typically, diabetes is more common in older populations, particularly
+    after the age of 45. However, with the rise of lifestyle-related factors, type 2 diabetes is increasingly being
+    diagnosed in younger individuals as well.</p>
+  <div>{{ graph_age | safe }}</div>
+
+  <h3>BMI vs Glucose Levels (Diabetes)</h3>
+  <p>This graph shows the relationship between Body Mass Index (BMI) and glucose levels in people with diabetes. It
+    helps us see if higher BMI is linked to higher glucose levels.
+    <strong>Key Insight:</strong> A BMI above 30 is considered obese, and people in this category are more likely to
+    have elevated glucose levels or even develop type 2 diabetes. An average BMI range falls between 18.5 to 24.9,
+    which is considered healthy. Levels above this range indicate increasing risks for health issues, including
+    diabetes.
+  </p>
+  <div>{{ graph_bmi_glucose | safe }}</div>
+
+  <h3>Blood Pressure by Diabetes Outcome</h3>
+  <p>This chart shows how blood pressure varies between people with different diabetes outcomes, such as controlled or
+    uncontrolled diabetes. It helps us understand the connection between blood pressure and diabetes management.
+    <strong>Key Insight:</strong> Elevated blood pressure (above 130/80 mmHg) is common among people with poorly
+    controlled diabetes and can lead to further complications like heart disease and kidney problems.
+  </p>
+  <div>{{ graph_bp_outcome | safe }}</div>
+
+  <h3>Correlation Heatmap (Diabetes)</h3>
+  <p>This heatmap shows how different factors, like age, BMI, and glucose levels, are related to each other. Darker
+    colors indicate a stronger relationship between the factors. The heatmap can help identify patterns that suggest
+    a higher risk for developing diabetes, such as high glucose levels correlating strongly with high BMI and age.
+  </p>
+  <div>{{ graph_corr_diabetes | safe }}</div>
+
+  <!-- Liver Insights -->
+  <h2>Liver Insights</h2>
+
+  <h3>Age Distribution (Liver)</h3>
+  <p>This chart shows how liver health varies across different age groups. It helps us understand if certain liver
+    conditions are more common in specific age ranges.
+    <strong>Key Insight:</strong> Liver diseases, such as fatty liver disease and cirrhosis, become more common in
+    older adults, particularly those over 50. However, the rise of non-alcoholic fatty liver disease (NAFLD) is
+    noticeable among younger adults due to obesity and poor dietary habits.
+  </p>
+  <div>{{ graph_liver_age | safe }}</div>
+
+  <h3>Total Bilirubin vs Alkaline Phosphatase</h3>
+  <p>This graph shows the relationship between two liver enzymes: total bilirubin and alkaline phosphatase. These
+    enzymes are important for liver function, and this chart helps us see if there's a connection between them.
+    <strong>Key Insight:</strong> Elevated bilirubin levels can indicate liver dysfunction or bile duct obstruction,
+    while elevated alkaline phosphatase levels are often associated with liver damage or disease. A balance in these
+    levels is crucial for healthy liver function.
+  </p>
+  <div>{{ graph_bilirubin_alp | safe }}</div>
+
+  <h3>A/G Ratio Distribution (Liver)</h3>
+  <p>This chart shows the distribution of the Albumin-to-Globulin (A/G) ratio in people with liver conditions. This
+    ratio can help doctors assess liver health and function.
+    <strong>Key Insight:</strong> A normal A/G ratio typically ranges between 1.1 and 2.5. A lower ratio (below 1.1)
+    may indicate liver disease, malnutrition, or kidney conditions, while a higher ratio can be associated with
+    certain types of infections or autoimmune disorders.
+  </p>
+  <div>{{ graph_ag_ratio | safe }}</div>
+
+  <h3>Correlation Heatmap (Liver)</h3>
+  <p>This heatmap shows the relationships between different liver-related factors. Just like the diabetes heatmap, it
+    shows which factors are closely linked to each other in liver health. It is especially helpful in identifying
+    patterns where liver health might be compromised by factors like obesity, diet, or pre-existing conditions.</p>
+  <div>{{ graph_corr_liver | safe }}</div>
+</div>
+
+
+    
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

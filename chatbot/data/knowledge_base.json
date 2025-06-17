@@ -1,0 +1,173 @@
+{
+    "diabetes": {
+      "diet": [
+        "Low sugar and high fiber foods",
+        "Whole grains, legumes, vegetables",
+        "Avoid refined carbs and sugary drinks"
+      ],
+      "exercise": [
+        "30 minutes of brisk walking daily",
+        "Light strength training",
+        "Yoga or low-impact aerobic exercises"
+      ],
+      "tips": [
+        "Monitor blood sugar regularly",
+        "Stay hydrated",
+        "Maintain a consistent meal schedule"
+      ]
+    },
+    "hypertension": {
+      "diet": [
+        "Low-sodium, DASH diet",
+        "Fruits, vegetables, low-fat dairy",
+        "Avoid processed foods and excess salt"
+      ],
+      "exercise": [
+        "30 minutes of moderate exercise (e.g. walking, cycling)",
+        "Deep breathing exercises",
+        "Swimming or light aerobics"
+      ],
+      "tips": [
+        "Reduce stress through meditation",
+        "Avoid smoking and alcohol",
+        "Check blood pressure regularly"
+      ]
+    },
+    "cancer": {
+      "diet": [
+        "High-protein, nutrient-dense foods",
+        "Plenty of fruits and vegetables",
+        "Avoid red and processed meats"
+      ],
+      "exercise": [
+        "Gentle walking or stretching",
+        "Light yoga (if energy permits)",
+        "Consult doctor before starting any plan"
+      ],
+      "tips": [
+        "Follow treatment schedule strictly",
+        "Get enough rest",
+        "Seek support from groups or counseling"
+      ]
+    },
+    "migraine": {
+      "diet": [
+        "Avoid trigger foods (e.g. chocolate, caffeine)",
+        "Stay hydrated",
+        "Eat small, frequent meals"
+      ],
+      "exercise": [
+        "Gentle stretching and yoga",
+        "Walking in natural light",
+        "Avoid high-intensity workouts during migraine"
+      ],
+      "tips": [
+        "Maintain a headache diary",
+        "Get regular sleep",
+        "Avoid bright lights and loud sounds"
+      ]
+    },
+    "flu": {
+      "diet": [
+        "Plenty of fluids",
+        "Warm soups and teas",
+        "Light, easy-to-digest meals"
+      ],
+      "exercise": [
+        "Rest is most important",
+        "Light stretching if energy allows",
+        "Avoid strenuous activity"
+      ],
+      "tips": [
+        "Stay home to avoid spreading",
+        "Take over-the-counter medication as needed",
+        "Keep warm and rest adequately"
+      ]
+    },
+    "cold": {
+      "diet": [
+        "Vitamin C-rich foods like oranges",
+        "Warm soups and teas",
+        "Stay hydrated"
+      ],
+      "exercise": [
+        "Rest until symptoms ease",
+        "Short walks if feeling up to it",
+        "Light yoga"
+      ],
+      "tips": [
+        "Use a humidifier",
+        "Rest and sleep",
+        "Gargle with salt water for sore throat"
+      ]
+    },
+    "asthma": {
+      "diet": [
+        "Anti-inflammatory foods like ginger, turmeric",
+        "Omega-3 rich foods (e.g. fish, flaxseed)",
+        "Avoid dairy if it triggers symptoms"
+      ],
+      "exercise": [
+        "Breathing exercises",
+        "Swimming",
+        "Low-impact aerobics"
+      ],
+      "tips": [
+        "Avoid allergens and smoke",
+        "Use inhalers as prescribed",
+        "Monitor peak flow regularly"
+      ]
+    },
+    "arthritis": {
+      "diet": [
+        "Omega-3 fatty acids (fish, walnuts)",
+        "Whole grains and leafy greens",
+        "Avoid sugary and processed foods"
+      ],
+      "exercise": [
+        "Low-impact exercises (e.g. swimming, cycling)",
+        "Stretching and yoga",
+        "Joint-strengthening routines"
+      ],
+      "tips": [
+        "Keep joints warm",
+        "Use supportive footwear",
+        "Manage weight to reduce pressure on joints"
+      ]
+    },
+    "eczema": {
+      "diet": [
+        "Anti-inflammatory foods (berries, leafy greens)",
+        "Avoid dairy or gluten if sensitive",
+        "Stay hydrated"
+      ],
+      "exercise": [
+        "Light activities that don’t cause excessive sweating",
+        "Swimming (if skin tolerates chlorine)",
+        "Breathing exercises to reduce stress"
+      ],
+      "tips": [
+        "Moisturize regularly",
+        "Avoid harsh soaps and allergens",
+        "Wear loose, cotton clothing"
+      ]
+    },
+    "gastritis": {
+      "diet": [
+        "Eat small, frequent meals",
+        "Avoid spicy, acidic, or fried foods",
+        "Consume bland foods like rice, toast, bananas"
+      ],
+      "exercise": [
+        "Gentle walking after meals",
+        "Avoid exercising on an empty stomach",
+        "Light yoga or stretching"
+      ],
+      "tips": [
+        "Avoid NSAIDs and alcohol",
+        "Manage stress",
+        "Don’t lie down immediately after eating"
+      ]
+    }
+  }
+  

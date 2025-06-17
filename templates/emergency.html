@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Emergency - Diagnosis</title>
+    <link rel="stylesheet" href="../static/css/emergency_style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+      <nav>
+        <div class="nav-left"><a href="/"><img src="../static/images/cover.png" alt="" class="logo"></a></div>
+        <div class="nav-right">
+            <a href="/prediction"><i class="fas fa-chart-line"></i> Prediction</a>
+            <a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+            <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <a href="/call-ambulance" class="ambulance-btn">
+            <i class="fas fa-ambulance"></i> Call
+            </a>
+        </div>
+    </nav>
+
+    <div class="emergency-container">
+        <h1>Emergency Medical Assistance</h1>
+            
+    </div>
+
+
+    <div class="emergency-container">
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('emergency-info')">Common Medical Emergencies</div>
+            <div class="tab" onclick="showTab('disease-emergency-info')">Emergency Information for Diseases</div>
+            <div class="tab" onclick="showTab('doctors-hospitals')">Doctors [&] Hospitals</div>
+            <div class="tab" onclick="showTab('emergency-actions')">What to Do in Case of Emergency</div>
+        </div>
+
+        <!-- Tab Content -->
+        <section id="emergency-info" class="tab-content active">
+            <h2>Common Medical Emergencies and Extreme Symptoms</h2>
+            <p>In case of any medical emergency, please consult a healthcare provider immediately or visit the nearest
+                hospital. Below are some extreme symptoms and actions that need urgent medical attention:</p>
+            <ul>
+                <li><strong>Chest Pain or Pressure</strong> - Symptoms of heart attack (seek emergency care
+                    immediately).</li>
+                <li><strong>Severe Shortness of Breath</strong> - Could be a sign of a serious respiratory issue (urgent
+                    attention required).</li>
+                <li><strong>Uncontrollable Bleeding</strong> - Seek immediate treatment to prevent shock or other
+                    complications.</li>
+                <li><strong>Severe Headache and Vomiting</strong> - Could indicate a neurological emergency like a
+                    stroke (seek medical help right away).</li>
+                <li><strong>Loss of Consciousness</strong> - If someone loses consciousness or is disoriented, call for
+                    emergency help.</li>
+                <li><strong>Severe Burns or Chemical Exposure</strong> - Immediate medical care is necessary to minimize
+                    damage.</li>
+                <li><strong>Extreme Allergic Reactions (Anaphylaxis)</strong> - Requires urgent treatment with an
+                    epinephrine shot and emergency care.</li>
+            </ul>
+        </section>
+
+        <section id="disease-emergency-info" class="tab-content">
+            <h2>Emergency Information for Predicted Diseases</h2>
+            <div class="emergecy-common-container">
+                {% for disease_type, instructions in emergency %}
+                <div class="faq">
+                    <div class="question">{{ disease_type }}</div>
+                    <div class="answer">{{ instructions }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="doctors-hospitals" class="tab-content active">
+          <h2>Expert Doctors [&] Hospitals in Kathmandu</h2>
+                
+          <!-- Doctors Section -->
+          <h3>Expert Doctors for Emergency Care:</h3>
+          <div class="doctor-container">
+            <div class="doctor-card">
+              <div class="doctor-name">Dr. Rajendra K. Shrestha</div>
+              <div class="doctor-specialty">Cardiologist</div>
+              <p>Heart and Chest Clinic, Kathmandu.</p>
+              <p><strong>Contact:</strong> +977 1 5551234</p>
+              <a href="tel:+97715551234" class="call-btn">Call</a><br>
+              <a href="https://www.hamrodoctor.com/doctor/rajendra-shrestha" target="_blank">Book an Appointment</a>
+            </div>
+        
+            <div class="doctor-card">
+              <div class="doctor-name">Dr. Sushil Jha</div>
+              <div class="doctor-specialty">Neurologist</div>
+              <p>Neurocare Hospital, Kathmandu.</p>
+              <p><strong>Contact:</strong> +977 1 4372567</p>
+              <a href="tel:+97714372567" class="call-btn">Call</a><br>
+              <a href="https://www.hamrodoctor.com/doctor/sushil-jha" target="_blank">Book an Appointment</a>
+            </div>
+        
+            <div class="doctor-card">
+              <div class="doctor-name">Dr. Ayesha Giri</div>
+              <div class="doctor-specialty">Emergency Medicine Specialist</div>
+              <p>Shree Harsha Medical Center, Kathmandu.</p>
+              <p><strong>Contact:</strong> +977 1 4387654</p>
+              <a href="tel:+97714387654" class="call-btn">Call</a><br>
+              <a href="https://www.hamrodoctor.com/doctor/ayesha-giri" target="_blank">Book an Appointment</a>
+            </div>
+        
+            <div class="doctor-card">
+              <div class="doctor-name">Dr. Prakash Poudel</div>
+              <div class="doctor-specialty">Orthopedic Surgeon</div>
+              <p>Poudel Orthopedic Hospital, Kathmandu.</p>
+              <p><strong>Contact:</strong> +977 1 5558763</p>
+              <a href="tel:+97715558763" class="call-btn">Call</a><br>
+              <a href="https://www.hamrodoctor.com/doctor/prakash-poudel" target="_blank">Book an Appointment</a>
+            </div>
+          </div>
+      
+          <!-- Hospitals Section -->
+          <h3>Hospitals with Emergency Services:</h3>
+          <div class="hospital-container">
+            <div class="hospital-card">
+              <div class="hospital-name">Shree Harsha Medical Center</div>
+              <p><strong>Location:</strong> Kathmandu, Nepal.</p>
+              <p><strong>Emergency Contact:</strong> +977 1 4379876</p>
+              <a href="tel:+97714379876" class="call-btn">Call</a><br>
+              <a href="https://www.shreeharsha.com" target="_blank">Visit Website</a>
+            </div>
+        
+            <div class="hospital-card">
+              <div class="hospital-name">Norvic International Hospital</div>
+              <p><strong>Location:</strong> Kathmandu, Nepal.</p>
+              <p><strong>Emergency Contact:</strong> +977 1 4236035</p>
+              <a href="tel:+97714236035" class="call-btn">Call</a><br>
+              <a href="https://www.norvichospital.com" target="_blank">Visit Website</a>
+            </div>
+        
+            <div class="hospital-card">
+              <div class="hospital-name">B & B Hospital</div>
+              <p><strong>Location:</strong> Kathmandu, Nepal.</p>
+              <p><strong>Emergency Contact:</strong> +977 1 4425011</p>
+              <a href="tel:+97714425011" class="call-btn">Call</a><br>
+              <a href="https://www.bbhospital.com" target="_blank">Visit Website</a>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="emergency-actions" class="tab-content">
+            <h2>What to Do in Case of an Emergency</h2>
+            <p>If you or someone you know is experiencing a medical emergency, follow these steps:</p>
+            <ul>
+                <li><strong>Stay Calm:</strong> Panic will only make the situation worse. Take a few deep breaths and
+                    try to stay calm.</li>
+                <li><strong>Call for Help:</strong> Dial 102 or the local emergency number to request an ambulance or
+                    immediate medical help.</li>
+                <li><strong>Administer First Aid:</strong> If you're trained, administer basic first aid while waiting
+                    for emergency responders to arrive.</li>
+                <li><strong>Be Clear and Specific:</strong> When calling for help, explain the situation clearly and
+                    provide accurate details about symptoms and the location.</li>
+                <li><strong>Follow Instructions:</strong> Follow the instructions provided by medical professionals,
+                    even if you're waiting for them to arrive.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const tabLinks = document.querySelectorAll('.tab');
+            tabLinks.forEach(tabLink => tabLink.classList.remove('active'));
+
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.add('active');
+
+            const selectedTabLink = document.querySelector(`.tab[onclick="showTab('${tabId}')"]`);
+            selectedTabLink.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('emergency-info');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('emergency-info');
+            const faqItems = document.querySelectorAll('.emergecy-common-container .faq');
+            faqItems.forEach(faq => {
+                faq.addEventListener('click', () => {
+                    faq.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+
+    <footer>
+        <p>© 2025 Medical Diagnosis System | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
